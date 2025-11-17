@@ -4,6 +4,7 @@ function Hero() {
   return (
     <>
     <header
+      id="home"
       className="
         relative h-screen w-screen
         flex flex-col items-center justify-center text-center text-white
