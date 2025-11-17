@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-function Header({ onSearch }) {
+function Header({ onSearch, onGenreSelect })
+ {
   const [scrollUp, setScrollUp] = useState(true);
   const [lastScroll, setLastScroll] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
