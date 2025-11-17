@@ -20,6 +20,20 @@ function MainApp() {
       .catch((err) => console.log(err));
   }, []);
 
+  // SEARCH LOGIC
+useEffect(() => {
+  if (query.trim() === "") return; // if search is empty, don't fetch
+
+  const timer = setTimeout(() => {
+    fetch(`https://api.jikan.moe/v4/anime?q=${query}`)
+      .then((res) => res.json())
+      .then((data) => setAnimeList(data.data))
+      .catch((err) => console.log(err));
+  }, 500); // debounce: wait 0.5 sec after typing
+
+  return () => clearTimeout(timer);
+}, [query]);
+
   return (
     <>
       <div className="flex flex-col justify-center items-center w-full">
